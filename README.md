@@ -9,12 +9,29 @@ function recovery after live donor nephrectomy. [in press].
 ---
 
 # Overview
-This repository contains the R analysis script for a retrospective cohort study examining the influence of pre-operative visceral adipose tissue (VAT) on kidney function recovery after live donor nephrectomy.
-Kidney function recovery was modelled as a ratio of post-operative eGFR to pre-operative mean eGFR using generalised additive mixed models with tensor product interactions via the mgcv package.
+This repository contains the R analysis script for a retrospective cohort study examining the association of pre-operative visceral adipose tissue (VAT) and remnant kidney cortex proportion with kidney function recovery after live donor nephrectomy.
+Kidney function recovery was modelled as the ratio of post-operative eGFR to donor-specific mean pre-operative eGFR (CKD-EPI 2021), using generalised additive mixed models with tensor product interactions via the mgcv package.
 
 **Study period:** 2020–2023, single tertiary centre, Brisbane, Australia  
 **Follow-up:** Up to December 2025 (maximum 5.7 years)  
 **Analytic sample:** 79 donors, 519 pre-operative creatinine observations, 521 post-operative creatinine observations
+
+---
+
+## Script outputs
+
+The script reproduces all results reported in the manuscript:
+
+- Descriptive statistics (Table 1) and missingness assessment
+- Primary model and sensitivity analyses 1–6 (pre-specified)
+- Sensitivity analysis 7: sex-specific recovery trajectories (post hoc, added during peer review)
+- Model diagnostics (Figure S1), including a heavy-tailed (scaled t) robustness check
+- Observed versus predicted calibration (Table S1)
+- Figures 2–4: predicted trajectories by VAT and by remnant kidney cortex proportion,
+  and the high- versus low-VAT difference curve
+- Table 2 and recovery slopes by VAT level
+
+A fixed random seed (`SEED`) is set so that `gam.check()` permutation results are reproducible.
 
 ---
 
